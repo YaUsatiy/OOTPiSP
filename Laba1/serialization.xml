@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="com.company.Vehicle">
+    <void property="fuel">
+     <int>2</int>
+    </void>
+    <void property="mileage">
+     <int>3</int>
+    </void>
+    <void property="price">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.company.Limousine">
+    <void property="acceleration">
+     <float>4.5</float>
+    </void>
+    <void property="fuel">
+     <int>2</int>
+    </void>
+    <void property="mileage">
+     <int>3</int>
+    </void>
+    <void property="places">
+     <int>7</int>
+    </void>
+    <void property="price">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
