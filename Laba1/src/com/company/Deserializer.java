@@ -44,19 +44,20 @@ public class Deserializer {
                             VehicleList.add(saloon);
                             continue;
                         }
-                        float acceleration = Float.parseFloat(arr.get(9));
-                        DriveWheel driveWheel;
-                        if (arr.get(12).equals("FRONT")) driveWheel = DriveWheel.FRONT;
-                        else  if (arr.get(12).equals("REAR")) driveWheel = DriveWheel.REAR;
-                        else driveWheel = DriveWheel.FULL;
-                        int places = Integer.parseInt(arr.get(2));
-                        int LPriceUp = Integer.parseInt(arr.get(6));
-                        String Lname = arr.get(5);
                         if(str.equals("com.company.Limousine")) {
                             for (int j = 1; j < 14; j++) {
                                 //str = reader.readLine();
                                 arr.add(reader.readLine());
                             }
+                            float acceleration = Float.parseFloat(arr.get(9));
+                            DriveWheel driveWheel;
+                            if (arr.get(12).equals("FRONT")) driveWheel = DriveWheel.FRONT;
+                            else  if (arr.get(12).equals("REAR")) driveWheel = DriveWheel.REAR;
+                            else driveWheel = DriveWheel.FULL;
+                            int places = Integer.parseInt(arr.get(2));
+                            int LPriceUp = Integer.parseInt(arr.get(6));
+                            String Lname = arr.get(5);
+
                             Limousine limousine = new Limousine(1,2,3,acceleration,driveWheel,places,Lname,LPriceUp);
                             VehicleList.add(limousine);
                             continue;
@@ -66,7 +67,8 @@ public class Deserializer {
                                 //str = reader.readLine();
                                 arr.add(reader.readLine());
                             }
-                            acceleration = Float.parseFloat(arr.get(5));
+                            float acceleration = Float.parseFloat(arr.get(5));
+                            DriveWheel driveWheel;
                             if (arr.get(8).equals("FRONT")) driveWheel = DriveWheel.FRONT;
                             else  if (arr.get(8).equals("REAR")) driveWheel = DriveWheel.REAR;
                             else driveWheel = DriveWheel.FULL;
@@ -80,11 +82,15 @@ public class Deserializer {
                         }
                         if(str.equals("com.company.SUV")) {
                             for (int j = 1; j < 10; j++) {
-                                arr.add(str);
+                                arr.add(reader.readLine());
                             }
-                            acceleration = Float.parseFloat(arr.get(5));
+                            float acceleration = Float.parseFloat(arr.get(5));
                             int clearance = Integer.parseInt(arr.get(2));
-                            SUV suv = new SUV(1, 2, 3, acceleration, DriveWheel.FRONT, clearance);
+                            DriveWheel driveWheel;
+                            if (arr.get(8).equals("FRONT")) driveWheel = DriveWheel.FRONT;
+                            else  if (arr.get(8).equals("REAR")) driveWheel = DriveWheel.REAR;
+                            else driveWheel = DriveWheel.FULL;
+                            SUV suv = new SUV(1, 2, 3, acceleration, driveWheel, clearance);
                             VehicleList.add(suv);
                             continue;
                         }

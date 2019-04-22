@@ -24,6 +24,8 @@ public class MainWindow extends JFrame {
     ArrayList<Object> ObjList = new ArrayList<Object>();
     Object obj;
 
+    int UserInput = 1;
+
     DefaultListModel DLM = new DefaultListModel();
     DefaultComboBoxModel DCM = new DefaultComboBoxModel();
     JComboBox<String> FrameComboBox = new JComboBox<String>(DCM);
@@ -219,27 +221,28 @@ public class MainWindow extends JFrame {
                 }
                 JOptionPane.showMessageDialog(null,"Данные успешно сохранены!","Внимание!", JOptionPane.INFORMATION_MESSAGE);
 
-                /*String plugName = PluginsComboBox.getSelectedItem().toString();
-                for(Class clazz : pluginClasses){
-                    try{
-                        if(clazz.getName().equals(plugName)) {
-                            Plugin plugin = (Plugin) clazz.newInstance();
-                            if(fileopen.getSelectedFile().getName().endsWith('.' + plugName)){
-                                String newName = fileopen.getSelectedFile().getAbsolutePath();
-                                newName = newName.substring(0, newName.lastIndexOf('.'));
-                                fileopen.getSelectedFile().renameTo(new File(newName));
-                                fileopen.showDialog(null, "Save as");
-                            }
-                            System.out.println(fileopen.getSelectedFile().getName());
+                if (UserInput != 1) {
+                    String plugName = PluginsComboBox.getSelectedItem().toString();
+                    for (Class clazz : pluginClasses) {
+                        try {
+                            if (clazz.getName().equals(plugName)) {
+                                Plugin plugin = (Plugin) clazz.newInstance();
+                                if (fileopen.getSelectedFile().getName().endsWith('.' + plugName)) {
+                                    String newName = fileopen.getSelectedFile().getAbsolutePath();
+                                    newName = newName.substring(0, newName.lastIndexOf('.'));
+                                    fileopen.getSelectedFile().renameTo(new File(newName));
+                                    fileopen.showDialog(null, "Save as");
+                                }
+                                System.out.println(fileopen.getSelectedFile().getName());
 
-                            //plugin.processing(fileopen.getSelectedFile().getAbsoluteFile());
-                            break;
+                                //plugin.processing(fileopen.getSelectedFile().getAbsoluteFile());
+                                break;
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
                         }
                     }
-                    catch (Exception ex){
-                        ex.printStackTrace();
-                    }
-                }*/
+                }
             }
         });
 
@@ -249,20 +252,21 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                /*String plugName = PluginsComboBox.getSelectedItem().toString();
-                for(Class clazz : pluginClasses){
-                    try{
-                        if(clazz.getName().equals(plugName)) {
-                            Plugin plugin = (Plugin) clazz.newInstance();
-                            if(fileopen.getSelectedFile().getName().endsWith('.'+plugName))
-                                //plugin.processing(fileopen.getSelectedFile());
-                            break;
+                if (UserInput !=1) {
+                    String plugName = PluginsComboBox.getSelectedItem().toString();
+                    for (Class clazz : pluginClasses) {
+                        try {
+                            if (clazz.getName().equals(plugName)) {
+                                Plugin plugin = (Plugin) clazz.newInstance();
+                                if (fileopen.getSelectedFile().getName().endsWith('.' + plugName))
+                                    //plugin.processing(fileopen.getSelectedFile());
+                                    break;
+                            }
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
                         }
                     }
-                    catch (Exception ex){
-                        ex.printStackTrace();
-                    }
-                }*/
+                }
 
                 final String filename;
                 int ind = dcm_ser.getIndexOf(dcm_ser.getSelectedItem());
